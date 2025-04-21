@@ -1,2 +1,2 @@
 # forge
-This is an implementation of a git commit generator.
+This is an implementation of a git commit generator in Go.
