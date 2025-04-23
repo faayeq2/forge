@@ -1,14 +1,21 @@
-BINARY_NAME=main.out
+BIN_NAME=main
 APP_NAME=forge
 CMD_DIR=./cmd
+BIN_DIR=./bin
 
-.PHONY: run clean build
+.PHONY: build run clean comm
 
 build:
-go run $(CMD_DIR)
+	@mkdir -p $(BIN_DIR)		#create bin dir if it doesn't exist
+	go build -o	 $(BIN_DIR)/$(BIN_NAME) $(CMD_DIR)
 
 run:
-go build -o $(APP_NAME) $(CMD_DIR)
+	@go run $(CMD_DIR)
 
 clean:
-rm -f forge forge.exe
+	rm -f $(BIN_DIR)/$(BIN_NAME)
+
+comm:
+	@git add .
+	@git commit -m "$(msg)"
+	@git push

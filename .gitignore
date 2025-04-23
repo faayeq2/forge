@@ -1,2 +1,6 @@
-.zig-cache/
-zig-out/
+# Binaries
+/bin/
+
+# Go build cache
+*.exe
+*.out

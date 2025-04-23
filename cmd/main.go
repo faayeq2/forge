@@ -5,5 +5,7 @@ import (
 )
 
 func main() {
-	fmt.Println("testing.")
+	str := "a"
+	length := len(str)
+	fmt.Println(length, " is length of string")
 }
