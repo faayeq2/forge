@@ -9,7 +9,6 @@ import (
 	"strings"
 
 	"github.com/manifoldco/promptui"
-	//"os/exec"
 )
 
 func user_input() {
