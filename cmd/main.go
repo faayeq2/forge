@@ -1,10 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"forge/internal/config"
 	"os"
 	"os/exec"
+	"strings"
 
 	"github.com/manifoldco/promptui"
 	//"os/exec"
@@ -17,14 +19,19 @@ func user_input() {
 		Items: config.Gitverbs,
 	}
 
-	comm_type.Run()
+	_, selected_type, _ := comm_type.Run()
 
 	fmt.Println("")
 
-	fmt.Print("enter commit message")
-	var msg string
-	fmt.Scanln(&msg)
-	cmd := exec.Command("git", "commit", "-m", msg)
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("enter commit message: ")
+
+	msg, _ := reader.ReadString('\n')
+	msg = strings.TrimSpace(msg)
+
+	fullMsg := fmt.Sprintf("%s: %s", selected_type, msg)
+	cmd := exec.Command("git", "commit", "-m", fullMsg)
+
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err := cmd.Run()
