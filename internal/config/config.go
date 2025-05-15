@@ -4,10 +4,14 @@ var Gitverbs = []string{
 	"start",
 	"cut",
 	"fix",
-	"feature",
+	"feat",
 	"refactor",
 	"reformat",
 	"optimise",
-	"document",
+	"docs",
 	"stop",
+	"style",
+	"test",
+	"build",
 }
+

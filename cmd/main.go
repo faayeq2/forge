@@ -12,6 +12,8 @@ import (
 )
 
 func user_input() {
+
+
 	fmt.Println("type of commit: ")
 	comm_type := promptui.Select{
 		Label: "commit type:",
