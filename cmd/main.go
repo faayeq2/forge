@@ -38,7 +38,7 @@ func user_input() {
 		fmt.Println("git commit failed: ", err)
 		return
 	}
-	fmt.Println("commit succesful")
+	fmt.Println("commit successful")
 }
 
 func main() {
