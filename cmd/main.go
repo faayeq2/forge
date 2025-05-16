@@ -11,8 +11,9 @@ import (
 	"github.com/manifoldco/promptui"
 )
 
-func user_input() {
+//example code
 
+func user_input() {
 
 	fmt.Println("type of commit: ")
 	comm_type := promptui.Select{
