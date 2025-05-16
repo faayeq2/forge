@@ -12,6 +12,7 @@ import (
 )
 
 //example code
+// mujtaba is a nigger
 
 func user_input() {
 
