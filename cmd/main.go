@@ -12,9 +12,8 @@ import (
 )
 
 //example code
-// mujtaba is a nigger
 
-func user_input() {
+func user_input() error {
 
 	fmt.Println("type of commit: ")
 	comm_type := promptui.Select{
@@ -22,7 +21,10 @@ func user_input() {
 		Items: config.Gitverbs,
 	}
 
-	_, selected_type, _ := comm_type.Run()
+	_, selected_type, err := comm_type.Run()
+	if err != nil {
+		return fmt.Errorf("failed to execute selection list: %w", err)
+	}
 
 	fmt.Println("")
 
@@ -37,12 +39,12 @@ func user_input() {
 
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	err := cmd.Run()
+	err = cmd.Run()
 	if err != nil {
-		fmt.Println("git commit failed: ", err)
-		return
+		return fmt.Errorf("git commit failed: %w", err)
 	}
-	fmt.Println("commit successful")
+
+	return nil
 }
 
 func main() {
