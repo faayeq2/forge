@@ -44,6 +44,15 @@ func user_input() error {
 		return fmt.Errorf("git commit failed: %w", err)
 	}
 
+	pushCodeberg := exec.Command("git", "push", "origin")
+	pushGithub := exec.Command("git", "push", "github")
+
+	pushCodeberg.Stdout = os.Stdout
+	pushGithub.Stdout = os.Stdout
+	if err := pushGithub.Run(); err != nil {
+		return fmt.Errorf("push to github failed: %w", err)
+	}
+
 	return nil
 }
 
