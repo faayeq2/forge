@@ -1,4 +1,4 @@
-BIN_NAME=main
+BIN_NAME=forge
 APP_NAME=forge
 CMD_DIR=./cmd
 BIN_DIR=./bin
